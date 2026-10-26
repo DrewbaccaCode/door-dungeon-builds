@@ -114,6 +114,12 @@ jobs:
           timeout 120 "$G" --headless --fixed-fps 30 --path . -- --mobile --phone=1170x540 --safe=40,0,40,14 --test=v103_menu > phone-menus-103.log 2>&1
           cat phone-menus-103.log
           if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' phone-menus-103.log; then exit 1; fi
+          timeout 120 "$G" --headless --fixed-fps 60 --path . -- --test=arena_presentation > arena-presentation.log 2>&1
+          cat arena-presentation.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' arena-presentation.log; then exit 1; fi
+          timeout 120 "$G" --headless --fixed-fps 30 --path . -- --mobile --phone=1170x540 --safe=40,0,40,14 --test=arena_presentation > phone-arena.log 2>&1
+          cat phone-arena.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' phone-arena.log; then exit 1; fi
           timeout 240 python3 tests/v101_net.py "$G"
           timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=wizard --mode=pvp --seed=5 --skip-intro --test=pvp > pvp.log 2>&1
           cat pvp.log
