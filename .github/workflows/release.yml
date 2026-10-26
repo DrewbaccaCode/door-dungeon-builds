@@ -120,6 +120,15 @@ jobs:
           timeout 120 "$G" --headless --fixed-fps 30 --path . -- --mobile --phone=1170x540 --safe=40,0,40,14 --test=arena_presentation > phone-arena.log 2>&1
           cat phone-arena.log
           if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' phone-arena.log; then exit 1; fi
+          timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=wizard --mode=pvp --seed=5 --skip-intro --test=v104 > arena-104.log 2>&1
+          cat arena-104.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' arena-104.log; then exit 1; fi
+          timeout 120 "$G" --headless --fixed-fps 30 --path . -- --mobile --phone=1170x540 --safe=40,0,40,14 --class=wizard --mode=pvp --seed=5 --skip-intro --test=v104 > phone-arena-104.log 2>&1
+          cat phone-arena-104.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' phone-arena-104.log; then exit 1; fi
+          timeout 180 "$G" --headless --fixed-fps 60 --path . -- --class=wizard --mode=pvp --seed=5 --skip-intro --test=pvp_match > bot-matches.log 2>&1
+          cat bot-matches.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL|PVP MATCH FAILED' bot-matches.log; then exit 1; fi
           timeout 240 python3 tests/v101_net.py "$G"
           timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=wizard --mode=pvp --seed=5 --skip-intro --test=pvp > pvp.log 2>&1
           cat pvp.log
