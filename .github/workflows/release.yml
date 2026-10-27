@@ -100,7 +100,7 @@ jobs:
         working-directory: source
         run: |
           G="$RUNNER_TEMP/godot"
-          for fixture in v101 auto_points v102 loot_102; do
+          for fixture in v101 auto_points v102 loot_102 v105 secret105 controller105; do
             timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=warrior --seed=5 --skip-intro "--test=$fixture" > "$fixture.log" 2>&1
             cat "$fixture.log"
             if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' "$fixture.log"; then exit 1; fi
@@ -150,6 +150,7 @@ jobs:
           if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' pvp-abilities.log; then exit 1; fi
           timeout 120 python3 tests/v102_net.py "$G"
           timeout 120 python3 tests/pvp_net.py "$G"
+          timeout 180 python3 tests/secret_net105.py "$G"
 
       - name: Export Windows, macOS and Linux
         working-directory: source
@@ -175,6 +176,10 @@ jobs:
           cat runtime-smoke.log
           if grep -Eq 'SCRIPT ERROR|Parse Error' runtime-smoke.log; then exit 1; fi
           grep -q 'FLOOR 1:' runtime-smoke.log
+          timeout 90 build/linux/door_dungeon.x86_64 --headless --script "$PWD/tests/export_smoke.gd" > secret-pack-smoke.log 2>&1
+          cat secret-pack-smoke.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^ERROR' secret-pack-smoke.log; then exit 1; fi
+          grep -q 'PASS exported pack: nine secret stages' secret-pack-smoke.log
 
       - name: Publish complete downloads as the latest release
         working-directory: source
