@@ -178,7 +178,7 @@ jobs:
           cat runtime-smoke.log
           if grep -Eq 'SCRIPT ERROR|Parse Error' runtime-smoke.log; then exit 1; fi
           grep -q 'FLOOR 1:' runtime-smoke.log
-          timeout 90 build/linux/door_dungeon.x86_64 --headless --script "$PWD/tests/export_smoke.gd" > secret-pack-smoke.log 2>&1
+          timeout 90 "$RUNNER_TEMP/godot" --headless --path "$RUNNER_TEMP" --main-pack "$PWD/build/linux/door_dungeon.x86_64" --script "$PWD/tests/export_smoke.gd" -- --test-pack-smoke > secret-pack-smoke.log 2>&1
           cat secret-pack-smoke.log
           if grep -Eq 'SCRIPT ERROR|Parse Error|^ERROR' secret-pack-smoke.log; then exit 1; fi
           grep -q 'PASS exported pack: nine secret stages' secret-pack-smoke.log
