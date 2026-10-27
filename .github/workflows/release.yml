@@ -99,6 +99,7 @@ jobs:
       - name: Check dungeon saves, multiplayer and Colosseum
         working-directory: source
         run: |
+          trap 'result=$?; if [ "$result" -ne 0 ]; then for log in *.log; do [ -f "$log" ] && tail -100 "$log"; done; fi; exit "$result"' EXIT
           G="$RUNNER_TEMP/godot"
           for fixture in v101 auto_points v102 loot_102 v105 secret105 controller105; do
             timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=warrior --seed=5 --skip-intro "--test=$fixture" > "$fixture.log" 2>&1
@@ -172,6 +173,7 @@ jobs:
       - name: Check that the exported game starts without the editor
         working-directory: source
         run: |
+          trap 'result=$?; if [ "$result" -ne 0 ]; then for log in *smoke.log; do [ -f "$log" ] && cat "$log"; done; fi; exit "$result"' EXIT
           timeout 60 build/linux/door_dungeon.x86_64 --headless --quit-after 120 -- --class=wizard --seed=5 --skip-intro > runtime-smoke.log 2>&1
           cat runtime-smoke.log
           if grep -Eq 'SCRIPT ERROR|Parse Error' runtime-smoke.log; then exit 1; fi
