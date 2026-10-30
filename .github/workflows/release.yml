@@ -152,6 +152,20 @@ jobs:
           timeout 120 python3 tests/v102_net.py "$G"
           timeout 120 python3 tests/pvp_net.py "$G"
           timeout 180 python3 tests/secret_net105.py "$G"
+          # 1.1.2: Quick Play, the Colosseum's maps and walls, Battle Royale (alone and over the relay)
+          timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=warrior --seed=5 --mode=quick --skip-intro --test=quick > quick.log 2>&1
+          cat quick.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' quick.log || ! grep -q 'QUICK: PASSED' quick.log; then exit 1; fi
+          timeout 120 "$G" --headless --fixed-fps 30 --path . -- --class=wizard --mode=pvp --seed=5 --skip-intro --test=arena_maps > arena-maps.log 2>&1
+          cat arena-maps.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' arena-maps.log || ! grep -q 'ARENA MAPS PASSED' arena-maps.log; then exit 1; fi
+          timeout 180 "$G" --headless --fixed-fps 30 --path . -- --class=warrior --mode=br --seed=5 --skip-intro --test=br > br.log 2>&1
+          cat br.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' br.log || ! grep -q 'BR PASSED' br.log; then exit 1; fi
+          timeout 180 "$G" --headless --fixed-fps 30 --path . -- --mobile --phone=1170x540 --safe=40,0,40,14 --class=archer --mode=br --seed=7 --skip-intro --test=br > phone-br.log 2>&1
+          cat phone-br.log
+          if grep -Eq 'SCRIPT ERROR|Parse Error|^FAIL' phone-br.log || ! grep -q 'BR PASSED' phone-br.log; then exit 1; fi
+          timeout 180 python3 tests/br_net.py "$G"
 
       - name: Export Windows, macOS and Linux
         working-directory: source
