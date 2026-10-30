@@ -2,6 +2,20 @@
 
 A pixel-art bullet-hell dungeon crawler. Install the launcher once, then choose which game version to download and play. **No Godot installation or GitHub account is needed.**
 
+> [!IMPORTANT]
+> ## Windows says "Windows protected your PC"? Click **More info**, then **Run anyway**.
+>
+> That's expected. The game is made by one person and isn't signed with a paid Microsoft certificate, so Windows doesn't recognise it yet. It's safe to run if you downloaded it from this page.
+>
+> 1. Right-click the downloaded ZIP and choose **Extract All** (don't run it from inside the ZIP).
+> 2. Open `Door Dungeon Launcher.exe`.
+> 3. On the blue "Windows protected your PC" screen, click **More info**, then **Run anyway**. You only need to do this once.
+>
+> If your browser says the file "isn't commonly downloaded", keep it anyway (Edge: **⋯ → Keep → Show more → Keep anyway**).
+> To skip the blue screen entirely, right-click the ZIP before extracting it, choose **Properties**, tick **Unblock**, then click **OK**.
+>
+> **On a Mac**, if it says Apple "could not verify" the app: click **Done**, then open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to the launcher's name.
+
 ## Download the launcher
 
 | Your computer | Download |
@@ -10,7 +24,7 @@ A pixel-art bullet-hell dungeon crawler. Install the launcher once, then choose 
 | macOS — Apple silicon or Intel | [Download for Mac](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/DoorDungeonLauncher-macOS.zip) |
 | Linux x86-64 | [Download for Linux](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/DoorDungeonLauncher-Linux.zip) |
 
-**Launcher 0.1.0 is an early release.** The download, install and play flow has been tested on macOS. Windows and Linux packages are available for testing. The Windows app is not publisher-signed, and the Mac app is not notarized, so your computer may ask you to approve opening it.
+**Launcher 0.1.0 is an early release.** The download, install and play flow has been tested on macOS. Windows and Linux packages are available for testing. The first time you open it, your computer may ask you to approve it (see the box above).
 
 ![Door Dungeon Launcher](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/launcher-preview.png)
 
@@ -18,13 +32,13 @@ A pixel-art bullet-hell dungeon crawler. Install the launcher once, then choose 
 
 1. Download the launcher for your computer and **extract the ZIP**.
 2. Open the launcher:
-   - **Windows:** run `Door Dungeon Launcher.exe`. Keep it in a permanent folder and make a shortcut if you like.
+   - **Windows:** run `Door Dungeon Launcher.exe` (on the blue SmartScreen screen: **More info → Run anyway**). Keep it in a permanent folder and make a shortcut if you like.
    - **Mac:** move `One Thousand Door Dungeon Launcher.app` into Applications, then open it.
    - **Linux:** run `door-dungeon-launcher.x86_64`. If needed, enable “Allow executing file as program” in its file properties.
 3. The newest game build is selected automatically. Click the green **Install** button to download and install it.
 4. When the button changes to **Play**, click it to start the game.
 
-If Windows shows a SmartScreen warning for this download, **More info → Run anyway** may be available. If macOS blocks it, try opening it once, then use **System Settings → Privacy & Security → Open Anyway**. Only approve the copy you downloaded from this repository; managed computers may require an administrator.
+Only approve the copy you downloaded from this page. On a school or work computer, an administrator may have turned **Run anyway** off.
 
 ## Updating and choosing a version
 
@@ -68,7 +82,7 @@ You can still download and run the game without the launcher:
 
 [Windows](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/latest/download/OneThousandDoorDungeon-Windows.zip) · [Mac](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/latest/download/OneThousandDoorDungeon-macOS.zip) · [Linux](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/latest/download/OneThousandDoorDungeon-Linux.zip)
 
-Extract the ZIP, then run `One Thousand Door Dungeon.exe`, `One Thousand Door Dungeon.app`, or `door_dungeon.x86_64`. These links always select the latest game release.
+Extract the ZIP, then run `One Thousand Door Dungeon.exe`, `One Thousand Door Dungeon.app`, or `door_dungeon.x86_64`. These links always select the latest game release. Windows and Mac will ask you to approve the game the same way as the launcher (see the box at the top). Games installed through the launcher don't ask.
 
 [Latest game release](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/latest) · [Launcher release and checksums](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/tag/launcher-v0.1.0) · [All releases](https://github.com/DrewbaccaCode/door-dungeon-builds/releases) · [Build status](https://github.com/DrewbaccaCode/door-dungeon-builds/actions)
 

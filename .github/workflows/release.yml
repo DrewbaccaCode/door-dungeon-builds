@@ -195,8 +195,8 @@ jobs:
           One Thousand Door Dungeon for Windows, macOS, and Linux. No Godot installation required.
 
           Download the ZIP for your computer, extract it, and run the game.
-          Windows: run One Thousand Door Dungeon.exe.
-          macOS: run One Thousand Door Dungeon.app. This development build is not notarized; approve it in macOS Privacy & Security if prompted.
+          Windows: run One Thousand Door Dungeon.exe. If Windows says "Windows protected your PC", click More info, then Run anyway.
+          macOS: run One Thousand Door Dungeon.app. If macOS says it could not verify the app, open System Settings > Privacy & Security and click Open Anyway.
           Linux: run door_dungeon.x86_64.
 
           Version: ${version}
