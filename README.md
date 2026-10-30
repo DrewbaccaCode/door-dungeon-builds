@@ -14,7 +14,7 @@ A pixel-art bullet-hell dungeon crawler. Install the launcher once, then choose 
 > If your browser says the file "isn't commonly downloaded", keep it anyway (Edge: **⋯ → Keep → Show more → Keep anyway**).
 > To skip the blue screen entirely, right-click the ZIP before extracting it, choose **Properties**, tick **Unblock**, then click **OK**.
 >
-> **On a Mac**, if it says Apple "could not verify" the app: click **Done**, then open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to the launcher's name.
+> **On a Mac** the launcher is notarized by Apple: it opens after one **Open** confirmation. (A direct game download from further down isn't: if macOS says Apple "could not verify" it, click **Done**, then open **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.)
 
 ## Download the launcher
 
@@ -24,7 +24,7 @@ A pixel-art bullet-hell dungeon crawler. Install the launcher once, then choose 
 | macOS — Apple silicon or Intel | [Download for Mac](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/DoorDungeonLauncher-macOS.zip) |
 | Linux x86-64 | [Download for Linux](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/DoorDungeonLauncher-Linux.zip) |
 
-**Launcher 0.1.0 is an early release.** The download, install and play flow has been tested on macOS. Windows and Linux packages are available for testing. The first time you open it, your computer may ask you to approve it (see the box above).
+**Launcher 0.1.0 is an early release.** The download, install and play flow has been tested on macOS. Windows and Linux packages are available for testing. The Mac launcher is signed and notarized; on Windows, the first time you open it, see the box above.
 
 ![Door Dungeon Launcher](https://github.com/DrewbaccaCode/door-dungeon-builds/releases/download/launcher-v0.1.0/launcher-preview.png)
 
